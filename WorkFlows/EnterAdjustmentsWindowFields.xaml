@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>965.333333333333,3210.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1153.33333333333,3210.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>EnterAdjustmentsWindowFields_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="29">
@@ -321,7 +321,7 @@
               </ui:Target>
             </ui:Click.Target>
           </ui:Click>
-          <Throw DisplayName="Adjustment Number already generated" Exception="[New BusinessRuleException(&quot;Field_AdjustmentNumber&quot;)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+          <Throw DisplayName="Adjustment Number already generated" Exception="[New BusinessRuleException(in_Config(&quot;BRE_DuplicateAdjustmentNumber&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
         </Sequence>
       </If.Then>
     </If>
