@@ -1,11 +1,15 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="InvalidValueError" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="InvalidValueError" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_strIncorrectField" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1150,1633.33333333333</sap:VirtualizedContainerService.HintSize>
+  <this:InvalidValueError.in_strIncorrectField>
+    <InArgument x:TypeArguments="x:String" />
+  </this:InvalidValueError.in_strIncorrectField>
+  <sap:VirtualizedContainerService.HintSize>640,1664</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="32">
+    <scg:List x:TypeArguments="x:String" Capacity="24">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>Microsoft.VisualBasic</x:String>
@@ -33,7 +37,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="28">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -62,10 +66,9 @@
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="InvalidValueError" sap:VirtualizedContainerService.HintSize="526,1568.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_7">
+  <Sequence sap2010:Annotation.AnnotationText="If Invalid Error Pop up appears raise exception" DisplayName="InvalidValueError" sap:VirtualizedContainerService.HintSize="526,1599.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_7">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="blnInvalidValue" />
     </Sequence.Variables>
@@ -73,15 +76,12 @@
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:UiElementExists DisplayName="Invalid Value Error Displayed?" Exists="[blnInvalidValue]" sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
       <ui:UiElementExists.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8f3fee2c-c135-4515-9753-02cdd704efd6" InformativeScreenshot="f9bd1bfa64b20a775185f7a3a6476a3a" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java role='internal frame' idx='28' /&gt;&lt;java name='Error Value entered is not valid for current field.  Please re-enter.*' role='internal frame' /&gt;" TimeoutMS="[CInt(in_Config(&quot;TimeOut_InvalidValueErrorDisplayed&quot;).ToString)]">
-          <ui:Target.WaitForReady>
-            <InArgument x:TypeArguments="ui:WaitForReady" />
-          </ui:Target.WaitForReady>
-        </ui:Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8f3fee2c-c135-4515-9753-02cdd704efd6" InformativeScreenshot="f9bd1bfa64b20a775185f7a3a6476a3a" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java role='internal frame' idx='28' /&gt;&lt;java name='Error Value entered is not valid for current field.  Please re-enter.*' role='internal frame' /&gt;" TimeoutMS="[CInt(in_Config(&quot;TimeOut_InvalidValueErrorDisplayed&quot;).ToString)]" WaitForReady="INTERACTIVE" />
       </ui:UiElementExists.Target>
     </ui:UiElementExists>
     <If Condition="[blnInvalidValue]" DisplayName="If Invalid Value Error Displayed?" sap:VirtualizedContainerService.HintSize="484,1330.66666666667" sap2010:WorkflowViewState.IdRef="If_1">
@@ -252,7 +252,7 @@
               </ui:Target>
             </ui:Click.Target>
           </ui:Click>
-          <Throw DisplayName="Entered Field is Wrong" Exception="[New BusinessRuleException (in_Config(&quot;Field_WrongValue&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
+          <Throw DisplayName="Entered Field is Incorrect" Exception="[New BusinessRuleException (in_strIncorrectField)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
         </Sequence>
       </If.Then>
       <If.Else>

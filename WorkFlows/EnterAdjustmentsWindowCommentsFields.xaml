@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1150,898.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>676,898.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>EnterAdjustmentsWindowCommentsFields_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="28">
@@ -44,7 +44,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="28">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="56">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -73,6 +73,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="EnterAdjustmentsWindowCommentsFields" sap:VirtualizedContainerService.HintSize="686,834" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -86,7 +87,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,74.6666666666667</av:Size>
-        <av:PointCollection x:Key="ConnectorLocation">300,77.1666666666667 300,103.666666666667</av:PointCollection>
+        <av:PointCollection x:Key="ConnectorLocation">300,77.1666666666667 300,143.666666666667</av:PointCollection>
         <x:Double x:Key="Width">652.333333333333</x:Double>
         <x:Double x:Key="Height">798</x:Double>
       </scg:Dictionary>
@@ -94,26 +95,28 @@
     <Flowchart.StartNode>
       <x:Reference>__ReferenceID7</x:Reference>
     </Flowchart.StartNode>
-    <FlowDecision x:Name="__ReferenceID4" Condition="[String.IsNullOrWhiteSpace(strReason)]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="78.6666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+    <FlowDecision x:Name="__ReferenceID4" Condition="[String.IsNullOrEmpty(strReason)]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="78.6666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <av:Point x:Key="ShapeLocation">300.666666666667,216.666666666667</av:Point>
+          <av:Point x:Key="ShapeLocation">300.666666666667,256.666666666667</av:Point>
           <av:Size x:Key="ShapeSize">78.6666666666667,86.6666666666667</av:Size>
-          <av:PointCollection x:Key="FalseConnector">379.333333333333,260 480,260 480,345.333333333333</av:PointCollection>
-          <av:PointCollection x:Key="TrueConnector">300.666666666667,260 140,260 140,324.02</av:PointCollection>
+          <av:PointCollection x:Key="FalseConnector">379.333333333334,300 480,300 480,385.333333333333</av:PointCollection>
+          <av:PointCollection x:Key="TrueConnector">300.666666666667,300 140,300 140,364.02</av:PointCollection>
+          <x:String x:Key="TrueLabel">Empty</x:String>
+          <x:String x:Key="FalseLabel">NotEmpty</x:String>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <FlowDecision.True>
         <FlowStep x:Name="__ReferenceID3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <av:Point x:Key="ShapeLocation">40,324.02</av:Point>
+              <av:Point x:Key="ShapeLocation">40,364.02</av:Point>
               <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">140,376.686666666667 140,426.686666666667</av:PointCollection>
+              <av:PointCollection x:Key="ConnectorLocation">140,416.686666666667 140,466.686666666667</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Comments Tab Fields are empty&quot;]">
+          <ui:LogMessage DisplayName="Log - Empty Comments" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[in_Config(&quot;Log_EmptyCommentsTabField&quot;).ToString]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -124,7 +127,7 @@
             <FlowStep x:Name="__ReferenceID5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">40,426.686666666667</av:Point>
+                  <av:Point x:Key="ShapeLocation">40,466.686666666667</av:Point>
                   <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
@@ -163,9 +166,9 @@
         <FlowStep x:Name="__ReferenceID0">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <av:Point x:Key="ShapeLocation">380,345.333333333333</av:Point>
+              <av:Point x:Key="ShapeLocation">380,385.333333333333</av:Point>
               <av:Size x:Key="ShapeSize">200,69.3333333333333</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">480,414.666666666666 480,464.666666666667</av:PointCollection>
+              <av:PointCollection x:Key="ConnectorLocation">480,454.666666666666 480,504.666666666667</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Sequence DisplayName="Enter 'Reason Filed'" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -177,7 +180,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" Activate="True" DisplayName="Send Hotkey 'text Adjustment'" sap:VirtualizedContainerService.HintSize="484,155.333333333333" sap2010:WorkflowViewState.IdRef="SendHotkey_4" Key="tab" KeyModifiers="None" SendWindowMessages="True" SpecialKey="True">
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" Activate="True" DisplayName="Press tab key at Date field" sap:VirtualizedContainerService.HintSize="484,155.333333333333" sap2010:WorkflowViewState.IdRef="SendHotkey_4" Key="tab" KeyModifiers="None" SendWindowMessages="True" SpecialKey="True">
               <ui:SendHotkey.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6bc727d4-eefa-4313-91f9-f3fbe23f7380" InformativeScreenshot="a40d5f09c81029b681aa54cc2eb68a9a" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Adjustments (HQ Department Of Labor : USD)*' role='internal frame' /&gt;&lt;java name='Adjustment&amp;#xD;&amp;#xA;Date RequiredList of Values' role='text' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -201,7 +204,7 @@
                 </ui:Target>
               </ui:SendHotkey.Target>
             </ui:SendHotkey>
-            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'text  Chargeback Number'" sap:VirtualizedContainerService.HintSize="484,155.333333333333" sap2010:WorkflowViewState.IdRef="SendHotkey_5" Key="tab" KeyModifiers="None" SpecialKey="True">
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Press tab key at Chargeback Number field" sap:VirtualizedContainerService.HintSize="484,155.333333333333" sap2010:WorkflowViewState.IdRef="SendHotkey_5" Key="tab" KeyModifiers="None" SpecialKey="True">
               <ui:SendHotkey.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b646bf10-7c02-42d1-92b7-fa81ef3100f8" InformativeScreenshot="3756462d49f9af05d3b60285f876b43d" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Adjustments (HQ Department Of Labor : USD) *' role='internal frame' /&gt;&lt;java name='Chargeback Number' role='text' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -227,16 +230,12 @@
             </ui:TypeInto>
             <ui:UiElementExists DisplayName="Adjustment Reasons Displayed?" Exists="[blnAdjustmentReasons]" sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
               <ui:UiElementExists.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d513702b-3838-4574-8bf0-220843c6383f" InformativeScreenshot="c6fefac0d30b516ed96b2be6f825902c" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Adjustments (HQ Department Of Labor : USD)*' role='internal frame' /&gt;&lt;java name='Adjustment Reasons' role='internal frame' /&gt;" TimeoutMS="5">
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
-                </ui:Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d513702b-3838-4574-8bf0-220843c6383f" InformativeScreenshot="c6fefac0d30b516ed96b2be6f825902c" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Adjustments (HQ Department Of Labor : USD)*' role='internal frame' /&gt;&lt;java name='Adjustment Reasons' role='internal frame' /&gt;" TimeoutMS="[CInt(in_Config(&quot;TimeOut_AdjustmentReasonsPanelDisplayed&quot;).ToString)]" WaitForReady="INTERACTIVE" />
               </ui:UiElementExists.Target>
             </ui:UiElementExists>
-            <If Condition="[blnAdjustmentReasons]" sap:VirtualizedContainerService.HintSize="484,546.666666666667" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[blnAdjustmentReasons]" DisplayName="If Adjustment Reasons displayed?" sap:VirtualizedContainerService.HintSize="484,546.666666666667" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="376,352" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence DisplayName="Cancel Adjustment" sap:VirtualizedContainerService.HintSize="376,352" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -266,7 +265,12 @@
                   </ui:Click>
                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InvalidValueError workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="WorkFlows\InvalidValueError.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                        <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_strIncorrectField">
+                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;BRE_ReasonError&quot;).ToString" />
+                      </InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                 </Sequence>
@@ -286,9 +290,9 @@
             <FlowStep x:Name="__ReferenceID1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">380,464.666666666667</av:Point>
+                  <av:Point x:Key="ShapeLocation">380,504.666666666667</av:Point>
                   <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">480,517.333333333334 480,567.333333333333</av:PointCollection>
+                  <av:PointCollection x:Key="ConnectorLocation">480,557.333333333334 480,607.333333333333</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type 'Comments'" EmptyField="True" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="True" Text="[strComments+ &quot;[k(tab)]&quot;]">
@@ -312,12 +316,12 @@
                 <FlowStep x:Name="__ReferenceID2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">380,567.333333333333</av:Point>
+                      <av:Point x:Key="ShapeLocation">380,607.333333333333</av:Point>
                       <av:Size x:Key="ShapeSize">200,69.3333333333333</av:Size>
-                      <av:PointCollection x:Key="ConnectorLocation">480,636.666666666666 480,673.666666666667</av:PointCollection>
+                      <av:PointCollection x:Key="ConnectorLocation">480,676.666666666666 480,713.666666666667</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Enter 'Status'" sap:VirtualizedContainerService.HintSize="526,951.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <Sequence DisplayName="Enter 'Status'" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:Boolean" Name="blnStatus" />
                       <Variable x:TypeArguments="x:Boolean" Name="blnAdjustmentInformation" />
@@ -341,22 +345,18 @@
                     </ui:TypeInto>
                     <ui:UiElementExists DisplayName="Status Displayed?" Exists="[blnStatus]" sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
                       <ui:UiElementExists.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a5906415-9bd7-4982-a615-dc1cfb4b9d9f" InformativeScreenshot="369a2d56ed8e8e43f849214cf1b668ef" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Adjustments (HQ Department Of Labor : USD)*' role='internal frame' /&gt;&lt;java name='Status' role='internal frame' /&gt;" TimeoutMS="5">
-                          <ui:Target.WaitForReady>
-                            <InArgument x:TypeArguments="ui:WaitForReady" />
-                          </ui:Target.WaitForReady>
-                        </ui:Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a5906415-9bd7-4982-a615-dc1cfb4b9d9f" InformativeScreenshot="369a2d56ed8e8e43f849214cf1b668ef" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Adjustments (HQ Department Of Labor : USD)*' role='internal frame' /&gt;&lt;java name='Status' role='internal frame' /&gt;" TimeoutMS="[CInt(in_Config(&quot;TimeOut_StatusPanelDisplayed&quot;).ToString)]" WaitForReady="INTERACTIVE" />
                       </ui:UiElementExists.Target>
                     </ui:UiElementExists>
-                    <If Condition="[blnStatus]" sap:VirtualizedContainerService.HintSize="484,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_2">
+                    <If Condition="[blnStatus]" DisplayName="If Status Panel Displayed?" sap:VirtualizedContainerService.HintSize="484,546.666666666667" sap2010:WorkflowViewState.IdRef="If_2">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="376,352" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <Sequence DisplayName="Close Adjustment" sap:VirtualizedContainerService.HintSize="376,352" sap2010:WorkflowViewState.IdRef="Sequence_5">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -386,7 +386,12 @@
                           </ui:Click>
                           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InvalidValueError workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="WorkFlows\InvalidValueError.xaml">
                             <ui:InvokeWorkflowFile.Arguments>
-                              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                                <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+                              </InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_strIncorrectField">
+                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;BRE_StatusError&quot;).ToString" />
+                              </InArgument>
                             </ui:InvokeWorkflowFile.Arguments>
                           </ui:InvokeWorkflowFile>
                         </Sequence>
@@ -403,14 +408,10 @@
                     </If>
                     <ui:UiElementExists DisplayName="Adjustment Information Displayed?" Exists="[blnAdjustmentInformation]" sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
                       <ui:UiElementExists.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ae0ef5fe-5d46-4f2e-a4ea-ecabe0929507" InformativeScreenshot="56093cd075c39718c81dda7f2d01baa6" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Adjustments (HQ Department Of Labor : USD)*' role='internal frame' /&gt;&lt;java name='Adjustment Information' role='internal frame' /&gt;" TimeoutMS="5">
-                          <ui:Target.WaitForReady>
-                            <InArgument x:TypeArguments="ui:WaitForReady" />
-                          </ui:Target.WaitForReady>
-                        </ui:Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ae0ef5fe-5d46-4f2e-a4ea-ecabe0929507" InformativeScreenshot="56093cd075c39718c81dda7f2d01baa6" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Adjustments (HQ Department Of Labor : USD)*' role='internal frame' /&gt;&lt;java name='Adjustment Information' role='internal frame' /&gt;" TimeoutMS="[CInt(in_Config(&quot;TimeOut_AdjustmentInformationDisplayed&quot;).ToString)]" WaitForReady="INTERACTIVE" />
                       </ui:UiElementExists.Target>
                     </ui:UiElementExists>
-                    <If Condition="[blnAdjustmentInformation]" sap:VirtualizedContainerService.HintSize="484,300.666666666667" sap2010:WorkflowViewState.IdRef="If_3">
+                    <If Condition="[blnAdjustmentInformation]" DisplayName="If Adjustment Information Displayed?" sap:VirtualizedContainerService.HintSize="484,300.666666666667" sap2010:WorkflowViewState.IdRef="If_3">
                       <If.Then>
                         <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
                           <ui:Click.CursorPosition>
@@ -450,7 +451,7 @@
                     <FlowStep x:Name="__ReferenceID6">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <av:Point x:Key="ShapeLocation">380,673.666666666667</av:Point>
+                          <av:Point x:Key="ShapeLocation">380,713.666666666667</av:Point>
                           <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
@@ -497,9 +498,9 @@
     <FlowStep x:Name="__ReferenceID7">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">200,103.666666666667</av:Point>
+          <av:Point x:Key="ShapeLocation">200,143.666666666667</av:Point>
           <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">300,156.333333333333 300,186.333333333333 340,186.333333333333 340,216.666666666667</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">300,196.333333333334 300,226.333333333334 340,226.333333333334 340,256.666666666667</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:MultipleAssign DisplayName="Assign Comments Tab Fields" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">

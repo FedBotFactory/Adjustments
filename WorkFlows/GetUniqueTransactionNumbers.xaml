@@ -4,7 +4,7 @@
     <x:Property Name="in_dtMainData" Type="InArgument(sd:DataTable)" />
     <x:Property Name="out_icollTransactionData" Type="OutArgument(scg:ICollection(x:String))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1150,1037.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>776,1037.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -69,7 +69,6 @@
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="1. Filter Unique Transaction Numbers&#xA;2. Add Unique Transaction Numbers to Transaction Data(Collection)" DisplayName="Get Unique Transaction Numbers" sap:VirtualizedContainerService.HintSize="476,972.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -115,7 +114,7 @@
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="Row" />
           </ActivityAction.Argument>
-          <AddToCollection x:TypeArguments="x:String" Collection="[out_icollTransactionData]" DisplayName="Add to collection" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="[Row(in_Config(&quot;ColName_TransactionNumber&quot;).ToString).ToString]" />
+          <AddToCollection x:TypeArguments="x:String" Collection="[out_icollTransactionData]" DisplayName="Add to Transaction Data" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="[Row(in_Config(&quot;ColName_TransactionNumber&quot;).ToString).ToString]" />
         </ActivityAction>
       </ui:ForEachRow.Body>
     </ui:ForEachRow>
