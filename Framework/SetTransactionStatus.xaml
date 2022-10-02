@@ -159,27 +159,13 @@
             </Sequence>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke UpdateBotStatus workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="WorkFlows\UpdateBotStatus.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMainData">
-                  <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="io_dtMainData" />
-                </InArgument>
-                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                  <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_BotStatus">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;BotStatus_Success&quot;).ToString" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_BotComments">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;BotComments_Success&quot;).ToString" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_ColumnValue">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionItem" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_ColumnName">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;ColName_TransactionNumber&quot;).ToString" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_GeneratedAdjustmentNumber">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_GeneratedAdjustmentNumber" />
-                </InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMainData">[io_dtMainData]</InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_BotStatus">[in_Config("BotStatus_Success").ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_BotComments">[in_Config("BotComments_Success").ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_ColumnValue">[in_TransactionItem]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_ColumnName">[in_Config("ColName_TransactionNumber").ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_GeneratedAdjustmentNumber">[in_GeneratedAdjustmentNumber]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </Sequence>
@@ -352,7 +338,7 @@
                       <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;ColName_TransactionNumber&quot;).ToString" />
                     </InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="in_GeneratedAdjustmentNumber">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_GeneratedAdjustmentNumber" />
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Nothing" />
                     </InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
@@ -530,27 +516,13 @@
                 </TryCatch>
                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke UpdateBotStatus workflow" sap:VirtualizedContainerService.HintSize="438.666666666667,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="WorkFlows\UpdateBotStatus.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMainData">
-                      <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="io_dtMainData" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                      <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_BotStatus">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;BotStatus_SE&quot;).ToString" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_BotComments">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;BotComments_SE&quot;).ToString" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_ColumnValue">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionItem" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_ColumnName">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;ColName_TransactionNumber&quot;).ToString" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_GeneratedAdjustmentNumber">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_GeneratedAdjustmentNumber" />
-                    </InArgument>
+                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMainData">[io_dtMainData]</InArgument>
+                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_BotStatus">[in_Config("BotStatus_SE").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_BotComments">[in_Config("BotComments_SE").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_ColumnValue">[in_TransactionItem]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_ColumnName">[in_Config("ColName_TransactionNumber").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_GeneratedAdjustmentNumber">[in_GeneratedAdjustmentNumber]</InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
               </Sequence>

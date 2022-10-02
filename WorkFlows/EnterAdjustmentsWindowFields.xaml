@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>640,3383.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1149.33333333333,4541.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>EnterAdjustmentsWindowFields_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="29">
@@ -74,10 +74,9 @@
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="EnterAdjustmentsWindowFields" sap:VirtualizedContainerService.HintSize="526,3318.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="EnterAdjustmentsWindowFields" sap:VirtualizedContainerService.HintSize="552,4476.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="blnApprovalLimitError" />
       <Variable x:TypeArguments="x:String" Name="strActivityName" />
@@ -89,14 +88,15 @@
       <Variable x:TypeArguments="x:String" Name="strRawAdjustmentDate" />
       <Variable x:TypeArguments="x:Boolean" Name="blnActivityNames" />
       <Variable x:TypeArguments="x:String" Name="strActivityNameText" />
+      <Variable x:TypeArguments="x:String" Name="strNumberText" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log - Adjustment Start" sap:VirtualizedContainerService.HintSize="484,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[in_Config(&quot;Log_AdjustmentStart&quot;).ToString]" />
-    <ui:UiElementExists DisplayName="Approval Limit Error Displayed?" Exists="[blnApprovalLimitError]" sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+    <ui:LogMessage DisplayName="Log - Adjustment Start" sap:VirtualizedContainerService.HintSize="510,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[in_Config(&quot;Log_AdjustmentStart&quot;).ToString]" />
+    <ui:UiElementExists DisplayName="Approval Limit Error Displayed?" Exists="[blnApprovalLimitError]" sap:VirtualizedContainerService.HintSize="510,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
       <ui:UiElementExists.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="09650a1d-2f22-4c99-93fb-4b1b3bbc09d9" InformativeScreenshot="69bfd3430fe96077228a0c5f65818fd1" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Installments (HQ Department Of Labor : USD)*' role='internal frame' /&gt;&lt;java name='Error APP-AR-11454: Approval limits have not been set for you.' role='internal frame' /&gt;" TimeoutMS="[CInt(in_Config(&quot;TimeOut_ApprovalLimitErrorDisplayed&quot;).ToString)]" WaitForReady="INTERACTIVE" />
       </ui:UiElementExists.Target>
@@ -107,10 +107,10 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:UiElementExists>
-    <If Condition="[blnApprovalLimitError]" DisplayName="If Approval Limit Error Displayed?" sap:VirtualizedContainerService.HintSize="484,300.666666666667" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[blnApprovalLimitError]" DisplayName="If Approval Limit Error Displayed?" sap:VirtualizedContainerService.HintSize="510,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -141,7 +141,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:MultipleAssign DisplayName="Assign Adjustment Window Main Tab Fields" sap:VirtualizedContainerService.HintSize="484,283.333333333333" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Assign Adjustment Window Main Tab Fields" sap:VirtualizedContainerService.HintSize="510,283.333333333333" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -209,22 +209,65 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get 'Activity Name text'" sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="GetValue_5">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="510,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get 'Number text'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_6">
+            <ui:GetValue.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9e9a28fe-31d6-459b-9788-1f8799c6a535" InformativeScreenshot="ee82cb7e21738a398c2993ff814b8bdf" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Adjustments (HQ Department Of Labor : USD)*' role='internal frame' /&gt;&lt;java name='*Number' role='text' /&gt;" WaitForReady="INTERACTIVE">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+              </ui:Target>
+            </ui:GetValue.Target>
+            <ui:GetValue.Value>
+              <OutArgument x:TypeArguments="x:String">[strNumberText]</OutArgument>
+            </ui:GetValue.Value>
+          </ui:GetValue>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'text Main'" sap:VirtualizedContainerService.HintSize="510,106" sap2010:WorkflowViewState.IdRef="GetValue_7">
       <ui:GetValue.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7f13866f-bc7c-4707-80b5-20b7b38f3e2a" InformativeScreenshot="62db9c79bbc437da2304a07f402fa146" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Adjustments (HQ Department Of Labor : USD)*' role='internal frame' /&gt;&lt;java name='*Activity&amp;#xD;&amp;#xA;Name Required*' role='text' /&gt;">
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7c9da24c-df31-47c9-bf83-3e21f4e4e06a" InformativeScreenshot="196c3f5b190bdd699baea4e73885bc03" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Adjustments*' role='internal frame' /&gt;&lt;java name='*Number' role='text' cls='VTextField' javastate='enabled,focusable,visible,showing,single line' idx='1' /&gt;" WaitForReady="INTERACTIVE">
           <ui:Target.TimeoutMS>
             <InArgument x:TypeArguments="x:Int32" />
           </ui:Target.TimeoutMS>
-          <ui:Target.WaitForReady>
-            <InArgument x:TypeArguments="ui:WaitForReady" />
-          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:GetValue.Target>
+      <ui:GetValue.Value>
+        <OutArgument x:TypeArguments="x:String">[strNumberText]</OutArgument>
+      </ui:GetValue.Value>
+    </ui:GetValue>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Number is : &quot;+ strNumberText]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[Not string.IsNullOrEmpty(strNumberText)]" />
+    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get 'Activity Name text'" sap:VirtualizedContainerService.HintSize="510,106" sap2010:WorkflowViewState.IdRef="GetValue_5">
+      <ui:GetValue.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7f13866f-bc7c-4707-80b5-20b7b38f3e2a" InformativeScreenshot="62db9c79bbc437da2304a07f402fa146" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Adjustments (HQ Department Of Labor : USD)*' role='internal frame' /&gt;&lt;java name='*Activity&amp;#xD;&amp;#xA;Name Required*' role='text' /&gt;" WaitForReady="INTERACTIVE">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
         </ui:Target>
       </ui:GetValue.Target>
       <ui:GetValue.Value>
         <OutArgument x:TypeArguments="x:String">[strActivityNameText]</OutArgument>
       </ui:GetValue.Value>
     </ui:GetValue>
-    <If Condition="[Not string.IsNullOrEmpty(strActivityNameText)]" DisplayName="If Adjustment Number already generated" sap:VirtualizedContainerService.HintSize="484,892.666666666667" sap2010:WorkflowViewState.IdRef="If_3">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Activity name is: &quot;+strActivityNameText]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[Not string.IsNullOrEmpty(strActivityNameText)]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[Not string.IsNullOrEmpty(strActivityNameText) Or Not string.IsNullOrEmpty(strNumberText)]" />
+    <If Condition="[Not string.IsNullOrEmpty(strActivityNameText) Or Not string.IsNullOrEmpty(strNumberText)]" DisplayName="If Adjustment Number already generated" sap:VirtualizedContainerService.HintSize="510,892.666666666667" sap2010:WorkflowViewState.IdRef="If_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -330,7 +373,7 @@
         </Sequence>
       </If.Then>
     </If>
-    <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type 'Activity Name'" EmptyField="True" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="True" Text="[strActivityName+ &quot;[k(tab)]&quot;]">
+    <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type 'Activity Name'" EmptyField="True" sap:VirtualizedContainerService.HintSize="510,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="True" Text="[strActivityName+ &quot;[k(tab)]&quot;]">
       <ui:TypeInto.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9f3de27d-a12f-41e2-8872-be02cce61f27" InformativeScreenshot="dda56cb0d753148243ff703454d15b8d" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Adjustments (HQ Department Of Labor : USD)*' role='internal frame' /&gt;&lt;java name='Main tab page Activity&amp;#xD;&amp;#xA;Name RequiredList of Values' role='text' /&gt;">
           <ui:Target.TimeoutMS>
@@ -342,7 +385,7 @@
         </ui:Target>
       </ui:TypeInto.Target>
     </ui:TypeInto>
-    <ui:UiElementExists DisplayName="Activity Names Displayed?" Exists="[blnActivityNames]" sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+    <ui:UiElementExists DisplayName="Activity Names Displayed?" Exists="[blnActivityNames]" sap:VirtualizedContainerService.HintSize="510,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
       <ui:UiElementExists.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d0837df2-c50a-4a1c-aa02-5e14dcb7df82" InformativeScreenshot="94ca4fc5c22ab6f66858f0d580a0fc40" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Adjustments (HQ Department Of Labor : USD)*' role='internal frame' /&gt;&lt;java name='Activity Names' role='internal frame' /&gt;" TimeoutMS="[CInt(in_Config(&quot;TimeOut_TimeOut_AcitivityNamesDisplayed&quot;).ToString)]" WaitForReady="INTERACTIVE" />
       </ui:UiElementExists.Target>
@@ -353,10 +396,10 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:UiElementExists>
-    <If Condition="[blnActivityNames]" DisplayName="If ActivityNames displayed?" sap:VirtualizedContainerService.HintSize="484,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[blnActivityNames]" DisplayName="If ActivityNames displayed?" sap:VirtualizedContainerService.HintSize="510,546.666666666667" sap2010:WorkflowViewState.IdRef="If_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -407,7 +450,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select 'Type'" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="[strType]">
+    <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select 'Type'" sap:VirtualizedContainerService.HintSize="510,134" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="[strType]">
       <ui:SelectItem.Items>
         <scg:List x:TypeArguments="x:String" Capacity="8">
           <x:String>Invoice</x:String>
@@ -428,7 +471,7 @@
         </ui:Target>
       </ui:SelectItem.Target>
     </ui:SelectItem>
-    <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type 'Amount'" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[strAmount]">
+    <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type 'Amount'" sap:VirtualizedContainerService.HintSize="510,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[strAmount]">
       <ui:TypeInto.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c3d57d48-b29d-44e1-908b-0aed06e55a66" InformativeScreenshot="bcee9d5ef8ae9b2345c985e56875f5a2" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Adjustments (HQ Department Of Labor : USD)*' role='internal frame' /&gt;&lt;java name='Amount Required' role='text' /&gt;">
           <ui:Target.TimeoutMS>
@@ -440,7 +483,7 @@
         </ui:Target>
       </ui:TypeInto.Target>
     </ui:TypeInto>
-    <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type 'GL Date'" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="[strGLDate]">
+    <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type 'GL Date'" sap:VirtualizedContainerService.HintSize="510,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="[strGLDate]">
       <ui:TypeInto.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="55d0fd80-41b7-41f9-b18e-ebb156965d4b" InformativeScreenshot="a3cb86812abeb87b0498c97d99d033e1" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Adjustments (HQ Department Of Labor : USD)*' role='internal frame' /&gt;&lt;java name='GL Date RequiredList of Values' role='text' /&gt;">
           <ui:Target.TimeoutMS>
@@ -452,7 +495,7 @@
         </ui:Target>
       </ui:TypeInto.Target>
     </ui:TypeInto>
-    <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type 'Adjustment Date'" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="TypeInto_4" Text="[strAdjustmentDate]">
+    <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type 'Adjustment Date'" sap:VirtualizedContainerService.HintSize="510,134" sap2010:WorkflowViewState.IdRef="TypeInto_4" Text="[strAdjustmentDate]">
       <ui:TypeInto.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="01dbdb2f-f747-4dd6-998e-1c9a1afb4021" InformativeScreenshot="0a53820e28e31642d3de925afc60659a" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - EBSDB' /&gt;&lt;java name='Adjustments (HQ Department Of Labor : USD)*' role='internal frame' /&gt;&lt;java name='Adjustment&amp;#xD;&amp;#xA;Date RequiredList of Values' role='text' /&gt;">
           <ui:Target.TimeoutMS>
@@ -464,6 +507,6 @@
         </ui:Target>
       </ui:TypeInto.Target>
     </ui:TypeInto>
-    <ui:LogMessage DisplayName="Log - Adjustment Success" sap:VirtualizedContainerService.HintSize="484,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[in_Config(&quot;Log_AdjustmentSuccess&quot;).ToString]" />
+    <ui:LogMessage DisplayName="Log - Adjustment Success" sap:VirtualizedContainerService.HintSize="510,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[in_Config(&quot;Log_AdjustmentSuccess&quot;).ToString]" />
   </Sequence>
 </Activity>
