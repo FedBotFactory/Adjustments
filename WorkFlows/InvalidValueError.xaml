@@ -6,7 +6,7 @@
   <this:InvalidValueError.in_strIncorrectField>
     <InArgument x:TypeArguments="x:String" />
   </this:InvalidValueError.in_strIncorrectField>
-  <sap:VirtualizedContainerService.HintSize>640,1664</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>961.333333333333,1664</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
